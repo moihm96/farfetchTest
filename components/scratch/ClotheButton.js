@@ -1,20 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, ImageBackground, TouchableOpacity, Text } from 'react-native'
+import { StyleSheet, ImageBackground, TouchableOpacity, Text } from 'react-native';
 
 export default function ClotheButton({ title, image, navigation, route }) {
 
     return (
         <ImageBackground
             source={{ uri: image }}
-            style={styles.container}
-        >
+            style={styles.container}>
             <TouchableOpacity activeOpacity={0.7} style={styles.buttonStyle} onPress={() => { navigation.navigate('Home', { title: title }) }}>
                 <Text style={styles.textStyle}>{title}</Text>
             </TouchableOpacity>
 
         </ImageBackground >
-
-    )
+)
 };
 
 const styles = StyleSheet.create({

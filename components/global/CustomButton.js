@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { heightPercentageToDP, widthPercentageToDP } from '../../utils/ScreenDimension';
 
 
 export default function CustomButton({ buttonText }) {
@@ -13,11 +14,12 @@ export default function CustomButton({ buttonText }) {
 const styles = StyleSheet.create({
     buttonStyle: {
         backgroundColor: "black",
-        width: "30%",
-        height: "7%",
+        width: widthPercentageToDP(30),
+        height: heightPercentageToDP(7),
         justifyContent: "center",
         alignItems: "center",
-        alignSelf: "center"
+        alignSelf: "center",
+        marginTop: heightPercentageToDP(5)
     },
     buttonTextStyle: {
         color: "#eee",

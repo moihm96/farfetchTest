@@ -1,17 +1,15 @@
 import React from 'react';
-import { View, StyleSheet, Image, TouchableOpacity, Text, ScrollView } from 'react-native';
+import { View } from 'react-native';
 
-import CarruselProducts from './CarruselProducts'
+import CarruselProducts from './CarruselProduct/CarruselProducts'
 import Title from '../global/Title'
 import Description from '../global/Description'
 import CustomButton from '../global/CustomButton'
-import { heightPercentageToDP, widthPercentageToDP } from '../../utils/ScreenDimension';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import { heightPercentageToDP } from '../../utils/ScreenDimension';
 
 const data = [
   {
-    image: 'https://cdn-images.farfetch-contents.com/18/55/35/53/18553553_40111691_1000.jpg',
+    image: "https://cdn-images.farfetch-contents.com/18/55/35/53/18553553_40111691_1000.jpg",
     title: 'Prada',
     description: 'top corto en strass',
     price: '1.590 €'
@@ -65,7 +63,7 @@ export default function SeccionProducts({ title, description, buttonText }) {
 
 
     < View style={{
-      marginTop: heightPercentageToDP(5),
+      marginTop: heightPercentageToDP(1),
       backgroundColor: "#fff",
       paddingVertical: 10,
       paddingLeft: 20
@@ -73,44 +71,9 @@ export default function SeccionProducts({ title, description, buttonText }) {
     }>
       <Title title={title} size="L" />
       <Description description={description} />
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {data.map((item, index) => (
-          <View key={index} style={{ width: widthPercentageToDP(55), marginRight: widthPercentageToDP(3), marginTop: "2%" }}>
-            <View style={{ backgroundColor: "#eee", }}>
-              <Image
-                source={{ uri: item.image }}
-                style={{ width: widthPercentageToDP(50), height: heightPercentageToDP(40), padding: 1 }}
-                resizeMode='contain'
-              />
-
-              <TouchableOpacity style={{ position: 'absolute', right: 1, top: 5 }}>
-                <MaterialCommunityIcons name='heart-outline' size={25} color='black' />
-              </TouchableOpacity>
-            </View>
-
-
-            <View>
-              <Title title={item.title} size="M" />
-              <Description description={item.description} />
-              <Description description={item.price} />
-            </View>
-
-          </View>
-        ))
-        }
-      </ScrollView >
+      <CarruselProducts data={data} />
 
       <CustomButton buttonText={buttonText} />
     </View >
   )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    width: widthPercentageToDP("100"),
-    height: heightPercentageToDP("90"),
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: "3%",
-  }
-});
+};
